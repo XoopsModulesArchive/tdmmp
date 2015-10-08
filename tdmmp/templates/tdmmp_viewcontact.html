@@ -1,0 +1,80 @@
+<script type="text/javascript">
+var $tdmmp = jQuery.noConflict();
+
+$tdmmp(document).ready(function() {
+  $tdmmp('#rowclick4 tr')
+  
+  .click(function(event) {
+  
+  	if (event.target.checked==true)
+{
+$tdmmp(this).attr('class', 'ui-state-highlight');
+  ViewContact($tdmmp(':checkbox', this).attr("value"));
+} else {
+$tdmmp(this).attr('class', 'ui-widget-content');
+}
+
+ if (event.target.type !== 'checkbox') {	
+      $tdmmp(':checkbox', this).trigger('click');
+    }
+	
+  })
+  
+    .mouseover(function(event) {
+  
+$tdmmp(this).addClass('ui-state-hover');
+	
+  })
+    .mouseout(function(event) {
+  
+$tdmmp(this).removeClass('ui-state-hover');
+	
+  })
+    
+});
+  
+</script>
+
+<h1 align="center" class="ui-state-active"><{$folder_title}> <{$total_messages}></h1>
+
+<{if $pagenav}>
+    <div style="padding: 5px; float: right; text-align:right;">
+    <{$pagenav}>
+    </div>
+    <br style="clear: both;" />
+<{/if}>
+
+<form name='prvmsg' method='post' action='contbox.php'>
+
+  <table border='0' id='rowclick4' cellspacing='1' cellpadding='4' width='100%' class='cell'>
+
+	<tr align='center' valign='middle'> 
+		<td class='ui-state-default' width="5%"></td>
+		<td class='ui-state-default' width="30%"><{$smarty.const._PM_FROM}></td>
+		<td class='ui-state-default' width="20%"><{$smarty.const._PM_GROUPES}></td>
+		<td class='ui-state-default' width="15%"><{$smarty.const._PM_ETAT}></td>
+		<td class='ui-state-default' width="30%"><{$smarty.const._PM_SUBMIT}></td>
+	</tr>
+
+	<{if $total_messages == 0}>
+    <tr>
+		<td class='ui-widget-content' colspan='6' align='center'><{$smarty.const._PM_YOUDONTHAVECONTACT}></td>
+    </tr>
+    <{/if}>
+
+ <{foreach item=message from=$messages}>
+<tr align='left' class="ui-widget-content">
+<td valign='top' width='2%' align='center'><input type='checkbox' id='msg_contact_<{$message.msg_contact}>' name='msg_contact[]'  value='<{$message.msg_contact}>' /></td>
+<td valign='middle' width='30%'><div align="center"><{$message.msg_poster}></div></td>
+<td valign='middle' width='20%'><div align="center"><{$message.msg_groupe}></div></td>
+<td valign='middle' width='15%'><div align="center"><{$message.msg_online}></div></td>
+<td valign='middle' width='30%'><div align="center"><{$message.msg_pmlink}></div></td>
+</tr>
+<{/foreach}>
+</table>
+</form>
+<{if $pagenav}>
+<div style="padding: 5px;float: right; text-align:right;">
+<{$pagenav}>
+</div>
+<{/if}>

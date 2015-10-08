@@ -1,0 +1,41 @@
+.jqueryFileTree {
+	list-style: none;
+	white-space: nowrap;
+	list-style-type: none;
+	display:block;
+	margin-top: 20px;
+	left: 50px;
+
+}
+
+
+.jqueryFileTree LI {
+	list-style: none;
+	margin-top: 10px;
+	margin-left: 20px;
+	letter-spacing: 0px;
+	white-space: nowrap;
+}
+
+UL.jqueryFileTree A {
+	text-decoration: none;
+	padding: 0px 20px;
+	list-style:none;	
+	
+}
+
+
+/* Core Styles */
+.jqueryFileTree LI.directory { background: url(../images/directory.png) left top no-repeat; }
+.jqueryFileTree LI.expanded { background: url(../images/folderopen.png) left top no-repeat; }
+.jqueryFileTree LI.file { background: url(../images/file.png) left top no-repeat; }
+.jqueryFileTree LI.wait { background: url(../images/spinner.gif) left top no-repeat; }
+/* File Extensions*/
+.jqueryFileTree LI.ext_received { background: url(../images/received.png) left top no-repeat; }
+.jqueryFileTree LI.ext_draft { background: url(../images/draft.png) left top no-repeat; }
+.jqueryFileTree LI.ext_send { background: url(../images/send.png) left top no-repeat; }
+.jqueryFileTree LI.ext_del { background: url(../images/del.png) left top no-repeat; }
+.jqueryFileTree LI.ext_work { background: url(../images/work.png) left top no-repeat; }
+.jqueryFileTree LI.ext_funy { background: url(../images/funy.png) left top no-repeat; }
+.jqueryFileTree LI.ext_perso{ background: url(../images/perso.png) left top no-repeat; }
+.jqueryFileTree LI.ext_user{ background: url(../images/user.png) left top no-repeat; }

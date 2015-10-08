@@ -1,0 +1,21 @@
+	<script type="text/javascript">
+		var $tdmmp = jQuery.noConflict();	
+		$tdmmp(document).ready( function() {	
+
+ $tdmmp( "#progressbar" ).progressbar({
+			value: <{$tdmmp_pourcent}>
+		});
+  
+<{if $tdmmp_pourcent >= 100 }>
+$tdmmp('#tdmmsg').html("<{$smarty.const._PM_ALERT_MSG}>");
+$tdmmp('#tdmmsg').fadeIn("fast").show();
+ <{/if}>  
+		
+			});
+	</script>
+
+	
+<h4 style='text-align:center;'><{$smarty.const._PM_PRIVATEMESSAGE}></h4>
+<br style="clear: both;"><a href="javascript:;" onclick="javascript:masque('tdmmsg')">
+<div id="tdmmsg" class="ui-state-highlight" style="text-align:center;padding:10px;display:none;"><br style="clear: both;"></div> </a>
+<br style="clear: both;">

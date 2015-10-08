@@ -1,0 +1,107 @@
+ <!-- menu -->
+
+<style type="text/css">
+	H1 {
+		font-family: Georgia, serif;
+		font-size: 20px;
+		font-weight: normal;
+		}
+			
+	H2 {
+		font-family: Georgia, serif;
+		font-size: 16px;
+		font-weight: normal;
+		margin: 0px 0px 10px 0px;
+		}
+						
+			
+	#menusauv {
+		position: absolute;
+		float: left;
+		margin: 13px 0px 0px 0px;
+		width: 200px;
+		text-decoration:none;
+		text-align:left;
+		color:#000000;
+		z-index: 1000;
+		}
+	
+		#menuread {
+		position: absolute;
+		float: left;
+		margin: 13px 0px 0px 0px;
+		width: 200px;
+		text-decoration:none;
+		text-align:left;
+		color:#000000;
+		z-index: 1000;
+		}
+		
+	.cell td {
+	padding: 5px;
+	}
+		</style>
+				
+ <br /> 
+ 
+  <!-- folder -->
+  <{if $tdmmp_class== "folder"}>	
+  <div id="folder" class="ui-widget-content" style="padding: 5px;"> 
+ <table>
+ <tr>
+ <{foreach item=folder_img from=$folders_img}>
+ <td>
+ 	<div style=" margin:10px; text-align:center;"><a href="#null" onclick='javascript:AddFolder(<{$folder_img.cid}>, 0);return false;' rel="<{$folder_img.cid}>"  title="<{$folder_img.title}>" alt="<{$folder_img.title}>"><img src="<{$smarty.const.TDMMP_IMAGES_URL}>/folder_<{$folder_img.couleur}>.png"><br /><span class="<{$activtrombi}>"><{$folder_img.title}></span></a></div>
+ </td>
+  <{foreach item=folder_sous from=$folder_img.sous}>
+  <td>
+  <div style=" margin:10px; text-align:center;"><a href="#null" onclick='javascript:AddFolder(<{$folder_sous.cid}>, 0);return false;' rel="<{$folder_sous.cid}>"   title="<{$folder_sous.title}>" alt="<{$folder_sous.title}>"><img src="<{$smarty.const.TDMMP_IMAGES_URL}>/folder_<{$folder_sous.couleur}>.png"><br /><span class="<{$activtrombi}>"><{$folder_sous.title}></span></a></div>
+  </td>
+  <{/foreach}>
+ 						<{if $folder_img.newline}>						
+									</tr>
+									<tr>
+
+						<{/if}>
+ <{/foreach}>
+ </tr></table>
+ </div>
+	
+ <br />
+ <{/if}> 
+ 
+ 
+ 
+	<div id="box" class="ui-tabs ui-widget-content">
+ 	<div style="float:right; margin:10px; text-align:center;"><img src="<{$smarty.const.TDMMP_IMAGES_URL}>/space.png" title="<{$tdmmp_pourc}>"><br /><div title="<{$tdmmp_pourc}>" id="progressbar" style="width:60px; height:12px;"></div></div>
+	<div style="float:right; margin:10px; text-align:center;"><a href="#null" onclick='javascript:ClearMsg();' id="tdmclear" value="<{$smarty.const._PM_RUSUREEMPTY}>" title="<{$smarty.const._PM_EMPTY}>"><img src="<{$smarty.const.TDMMP_IMAGES_URL}>/empty.png"><br /><span class="<{$activtrombi}>"><{$smarty.const._PM_EMPTY}></span></a></div>
+    <div style="float:right; margin:10px; text-align:center;"><a href="#null" onclick='javascript:RemoveMsg();' id="tdmremove" value="<{$smarty.const._PM_RUSUREDELETE}>" title="<{$smarty.const._PM_DELETE}>"><img src="<{$smarty.const.TDMMP_IMAGES_URL}>/delete.png"><br /><span class="<{$activdoc}>"><{$smarty.const._PM_DELETE}></span></a></div>
+	<div style="float:right; margin:10px; text-align:center;"><a href="#null" id="tdmread" value="<{$smarty.const._PM_RUSUREREAD}>" title="<{$smarty.const._PM_TOREAD}>"><img src="<{$smarty.const.TDMMP_IMAGES_URL}>/read.png"><br /><span class="<{$activnews}>"><{$smarty.const._PM_TOREAD}></span></a>
+	
+	<div id="menuread" style="display: none;" class="ui-widget-content">
+	<ul>
+	<li style="list-style-type: none;"> - <a onclick='ReadMsg("1");return false;' href='javascript:;'><{$smarty.const._PM_TOREADNEWS}></a></li>
+	<li style="list-style-type: none;"> - <a onclick='ReadMsg("0");return false;' href='javascript:;'><{$smarty.const._PM_TOREADNO}></a></li>
+	</ul>
+	</div>
+	
+	</div>
+	<div style="float:right; margin:10px; text-align:center;"><a href="#null" id="tdmsauv" value="<{$smarty.const._PM_RUSURESAUV}>" title="<{$smarty.const._PM_TOSAVE}>"><img src="<{$smarty.const.TDMMP_IMAGES_URL}>/move.png"><br /><span class="<{$activnews}>"><{$smarty.const._PM_TOSAVE}></span></a>
+	
+	<div id="menusauv" style="display: none;" class="ui-widget-content">
+	<ul>
+	<{foreach item=folder from=$folders}>
+	<li style="list-style-type: none;"> - <a onclick='MoveMsg("<{$folder.cid}>");return false;' href='javascript:;'><{$folder.title}></a></li>
+	<{/foreach}>
+	</ul>
+	</div>
+	
+	</div>
+	<div style="float:right; margin:10px; text-align:center;"><a href="#null" onclick='javascript:openWithSelfMain("<{$xoops_url}>/modules/TDMMp/pmlite.php?send=1", "pmlite", 550, 450);' title="<{$smarty.const._PM_SUBMIT}>"><img src="<{$smarty.const.TDMMP_IMAGES_URL}>/sender.png"><br /><span class="<{$activevent}>"><{$smarty.const._PM_SUBMIT}></span></a></div>
+	<br style="clear: both;"></div>	
+
+<br/><br />
+ <div class="ui-widget-content ui-corner-top" style="padding:5px;">	
+	<div style="float: right;"><{if $tdmmp_class== "folder"}><a href="javascript:;" onclick="javascript:masque('folder')" ><{$smarty.const._PM_MASQUEFOLDER}></a> | <{/if}> <a href="javascript:;" onclick="javascript:masque('box')" ><{$smarty.const._PM_MASQUEBOX}></a> | <a href="javascript:;" onclick="javascript:masque('tdmview')" ><{$smarty.const._PM_MASQUEVIEW}></a> | <{$smarty.const._PM_STYLE}><{$pmform.elements.style.body}></div>
+	<br style="clear: both;">	
+	</div>

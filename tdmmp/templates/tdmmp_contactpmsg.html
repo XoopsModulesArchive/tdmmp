@@ -1,0 +1,95 @@
+<h1 align="center" class="ui-state-active"><{$user_uname}></h1>
+
+<table width="100%" cellpadding="4" cellspacing="1" class='cell'>
+  <tr valign="top" class='ui-widget-content'>
+    <td width="50%">
+      <table cellpadding="4" cellspacing="1" width="100%" class='cell'>
+        <tr>
+          <th colspan="2" align="center" class='ui-state-default'><{$lang_allaboutuser}></th>
+        </tr>
+        <tr valign="top">
+          <td ><{$smarty.const._US_AVATAR}></td>
+          <td align="center"><img src="<{$user_avatarurl}>" alt="Avatar" /></td>
+        </tr>
+        <tr class="ui-widget-content">
+          <td ><{$smarty.const._US_REALNAME}></td>
+          <td align="center" ><{$user_realname}></td>
+        </tr>
+        <tr >
+          <td ><{$smarty.const._US_WEBSITE}></td>
+          <td ><{$user_websiteurl}></td>
+        </tr>
+        <tr valign="top" class='ui-widget-content'>
+          <td ><{$smarty.const._US_EMAIL}></td>
+          <td ><{$user_email}></td>
+        </tr>
+        <tr valign="top">
+          <td ><{$smarty.const._US_ICQ}></td>
+          <td ><{$user_icq}></td>
+        </tr>
+        <tr valign="top" class='ui-widget-content'>
+          <td ><{$smarty.const._US_AIM}></td>
+          <td ><{$user_aim}></td>
+        </tr>
+        <tr valign="top">
+          <td ><{$smarty.const._US_YIM}></td>
+          <td ><{$user_yim}></td>
+        </tr>
+        <tr valign="top" class='ui-widget-content'>
+          <td ><{$smarty.const._US_MSNM}></td>
+          <td ><{$user_msnm}></td>
+        </tr>
+        <tr valign="top">
+          <td ><{$smarty.const._US_LOCATION}></td>
+          <td ><{$user_location}></td>
+        </tr>
+        <tr valign="top" class='ui-widget-content'>
+          <td ><{$smarty.const._US_OCCUPATION}></td>
+          <td ><{$user_occupation}></td>
+        </tr>
+        <tr valign="top">
+          <td ><{$smarty.const._US_INTEREST}></td>
+          <td ><{$user_interest}></td>
+        </tr>
+        <tr valign="top" class='ui-widget-content'>
+          <td ><{$smarty.const._US_EXTRAINFO}></td>
+          <td ><{$user_extrainfo}></td>
+        </tr>
+      </table>
+    </td>
+    <td width="50%">
+      <table class='cell' cellpadding="4" cellspacing="1" width="100%" >
+        <tr valign="top">
+          <th colspan="2" align="center" class='ui-state-default'><{$smarty.const._US_STATISTICS}></th>
+        </tr>
+        <tr valign="top">
+          <td ><{$smarty.const._US_MEMBERSINCE}></td>
+          <td align="center" ><{$user_joindate}></td>
+        </tr>
+        <tr valign="top" class='ui-widget-content'>
+          <td ><{$smarty.const._US_RANK}></td>
+          <td align="center" ><{$user_rankimage}><br /><{$user_ranktitle}></td>
+        </tr>
+        <tr valign="top">
+          <td ><{$smarty.const._US_POSTS}></td>
+          <td align="center" ><{$user_posts}></td>
+        </tr>
+    <tr valign="top" class='ui-widget-content'>
+          <td ><{$smarty.const._US_LASTLOGIN}></td>
+          <td align="center" ><{$user_lastlogin}></td>
+        </tr>
+      </table>
+      <br />
+      <table class='cell' cellpadding="4" cellspacing="1" width="100%">
+        <tr valign="top">
+          <th colspan="2" align="center" class='ui-state-default'><{$smarty.const._US_SIGNATURE}></th>
+        </tr>
+        <tr valign="top">
+          <td ><{$user_signature}></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<br style="clear: both;" />

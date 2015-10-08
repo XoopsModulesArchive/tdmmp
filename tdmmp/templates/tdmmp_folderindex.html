@@ -1,0 +1,83 @@
+<!-- Templatte pour le style Dossier -->
+
+
+<style type="text/css">
+	H1 {
+		font-family: Georgia, serif;
+		font-size: 20px;
+		font-weight: normal;
+		}
+			
+	H2 {
+		font-family: Georgia, serif;
+		font-size: 16px;
+		font-weight: normal;
+		margin: 0px 0px 10px 0px;
+		}
+			
+	#fileTreeDemo_2 {
+		width: 100%;
+		height: 120px;
+		min-height:130px;
+		overflow-y: auto;
+		overflow-x: hidden;
+		float:left;
+		list-style:none;
+		}
+			
+	#tdmmp {
+		min-height:400px;
+		overflow-y: auto;
+		overflow-x: hidden;
+		padding:0px;		
+		}
+			
+	#tdmview {
+		overflow-y: auto;
+		overflow-x: hidden;
+		min-height:400px;
+		display:none;
+		top:-10px;
+		}
+			
+	P.note {
+		color: #999;
+		clear: both;
+		}
+			
+		
+	.cell td {
+	padding: 5px;
+	}
+		</style>
+		
+	<script type="text/javascript">
+		var $tdmmp = jQuery.noConflict();	
+		$tdmmp(document).ready( function() {
+				
+		$tdmmp('#fileTreeDemo_2').fileTree({ script: './include/jquery.php?op=folder', expandSpeed: 750, collapseSpeed: 750, multiFolder: false }, function(file) { 
+					});
+	
+		$tdmmp(".ui-resizable").resizable({  handles: 's' });
+		AddFolder(1, 0);					
+			});
+  
+	</script>
+<div style="margin:10px;">
+<h4 style='text-align:center;'><{$smarty.const._PM_PRIVATEMESSAGE}></h4>
+<br style="clear: both;">
+
+
+ 
+ <!-- menu -->
+ <{include file="db:tdmmp_menu.html"}>
+ <!-- off menu -->
+ 	
+ <div style="width: 100%;">  
+
+	<div id="tdmmp" class="ui-widget-content ui-resizable" ><div id="tdmfolder" value="" style="padding: 5px;"></div></div>
+	<div id="tdmview" class="ui-widget-content ui-resizable ui-corner-bottom"><div id="tdmmsg" style="padding: 5px;"></div></div>
+	
+
+<br style="clear: both;">
+</div></diV>

@@ -1,0 +1,134 @@
+<style type="text/css">
+	H1 {
+		font-family: Georgia, serif;
+		font-size: 20px;
+		font-weight: normal;
+		}
+			
+	H2 {
+		font-family: Georgia, serif;
+		font-size: 16px;
+		font-weight: normal;
+		margin: 0px 0px 10px 0px;
+		}
+			
+	#fileTreeDemo_2 {
+		width: 12%;
+		overflow-y: hidden;
+		overflow-x: hidden;
+		float:left;
+		padding-top:5px;
+		padding-left:10px;
+		list-style:none;
+		}
+		
+			
+	#tdmmp {
+		min-height:400px;
+		overflow-y: auto;
+		overflow-x: hidden;
+		padding:0px;
+		
+		}
+			
+	#tdmview {
+		overflow-y: auto;
+		overflow-x: hidden;
+		min-height:400px;
+		display:none;
+		top:-10px;
+		}
+			
+	P.note {
+		color: #999;
+		clear: both;
+		}
+			
+			
+	#menusauv {
+		position: absolute;
+		float: left;
+		margin: 0px 0px 0px 80px;
+		width: 200px;
+		text-decoration:none;
+		text-align:left;
+		color:#000000;
+		z-index: 1000;
+		}
+	
+		#menuread {
+		position: absolute;
+		float: left;
+		margin: 0px 0px 0px 180px;
+		width: 200px;
+		text-decoration:none;
+		text-align:left;
+		color:#000000;
+		z-index: 1000;
+		}
+		
+	.cell td {
+	padding: 5px;
+	}
+		</style>
+		
+	<script type="text/javascript">
+		var $tdmmp = jQuery.noConflict();	
+		$tdmmp(document).ready( function() {
+				
+		$tdmmp('#fileTreeDemo_2').fileTree({ script: './include/jquery.php?op=folder', expandSpeed: 750, collapseSpeed: 750, multiFolder: false }, function(file) { 
+					});
+		$tdmmp('#tabs').tabs();	
+		$tdmmp(".ui-resizable").resizable({  handles: 's', alsoResize: '#fileTreeDemo_2'});
+		AddFolder(1, 0);					
+			});
+  
+	</script>
+
+<div style="margin:10px;">
+ <!-- header -->
+ <{include file="db:tdmmp_header.html"}>
+ <!-- off -->			
+
+<div id="tabs">
+  <ul>
+   	
+    <li style="list-style-type: none;"><a href="#null" onclick='javascript:openWithSelfMain("<{$xoops_url}>/modules/TDMMp/pmlite.php?send=1", "pmlite", 550, 450);' title="<{$smarty.const._PM_SUBMIT}>"><span class="<{$activevent}>"><{$smarty.const._PM_SUBMIT}></span></a></li>
+    <li style="list-style-type: none;"><a href="#null" id="tdmsauv" value="<{$smarty.const._PM_RUSURESAUV}>" title="<{$smarty.const._PM_TOSAVE}>"><span class="<{$activnews}>"><{$smarty.const._PM_TOSAVE}></span></a></li>
+    <li style="list-style-type: none;"><a href="#null" id="tdmread" value="<{$smarty.const._PM_RUSUREREAD}>" title="<{$smarty.const._PM_TOREAD}>"><span class="<{$activnews}>"><{$smarty.const._PM_TOREAD}></span></a></li>
+	<li style="list-style-type: none;"><a href="#null" onclick='javascript:RemoveMsg();' id="tdmremove" value="<{$smarty.const._PM_RUSUREDELETE}>" title="<{$smarty.const._PM_DELETE}>"><span class="<{$activdoc}>"><{$smarty.const._PM_DELETE}></span></a></li>
+	<li style="list-style-type: none;"><a href="#null" onclick='javascript:ClearMsg();' id="tdmclear" value="<{$smarty.const._PM_RUSUREEMPTY}>" title="<{$smarty.const._PM_EMPTY}>"><span class="<{$activtrombi}>"><{$smarty.const._PM_EMPTY}></span></a></li>
+	<li style="list-style-type: none;"><a href="#null"><div title="<{$tdmmp_pourc}>" id="progressbar" style="width:60px; height:16px;"></div></a></li>
+  
+	<div style="float: right;"><a href="javascript:;" onclick="javascript:masque('tdmview')" ><{$smarty.const._PM_MASQUEVIEW}></a> | <{$pmform.elements.style.body}></div><br style="clear: both;">
+		</ul>
+
+  
+  	<div id="menusauv" style="display: none;" class="ui-widget-content">
+	<ul>
+	<{foreach item=folder from=$folders}>
+	<li style="list-style-type: none;"> - <a onclick='MoveMsg("<{$folder.cid}>");return false;' href='javascript:;'><{$folder.title}></a></li>
+	<{/foreach}>
+	</ul>
+	</div>
+	
+	<div id="menuread" style="display: none;" class="ui-widget-content">
+	<ul>
+	<li style="list-style-type: none;"> - <a onclick='ReadMsg("1");return false;' href='javascript:;'><{$smarty.const._PM_TOREADNEWS}></a></li>
+	<li style="list-style-type: none;"> - <a onclick='ReadMsg("0");return false;' href='javascript:;'><{$smarty.const._PM_TOREADNO}></a></li>
+	</ul>
+	</div>
+  
+  
+	 <div style="width: 100%;">
+	<div class="ui-widget-content">
+	<div id="fileTreeDemo_2"></div>
+	<div id="tdmmp" class="ui-resizable ui-widget-borderl"><div id="tdmfolder" value="" style="padding: 5px;"></div></div></div>
+	<div id="tdmview" class="ui-widget-content ui-corner-all" ><div id="tdmmsg" style="padding: 5px;"></div></div>
+	</div>
+	
+	
+
+<br style="clear: both;">
+</div>	
+</div>	
