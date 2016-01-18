@@ -21,7 +21,7 @@ include_once(XOOPS_ROOT_PATH."/class/xoopsformloader.php");
 include_once(XOOPS_ROOT_PATH."/class/tree.php");
 include_once XOOPS_ROOT_PATH.'/class/pagenav.php';
 include_once XOOPS_ROOT_PATH.'/modules/'.$xoopsModule->getVar("dirname").'/include/common.php';
-
+
 $op = isset($_REQUEST['op']) ? $_REQUEST['op'] : 'list';
 
  switch($op) {

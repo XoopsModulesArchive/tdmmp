@@ -31,7 +31,7 @@ class tdmmp_contact extends XoopsObject
 // constructor
 	function __construct()
 	{
-		$this->XoopsObject();
+		parent::__construct();
 		$this->initVar("id",XOBJ_DTYPE_INT,null,false,8);
 		$this->initVar("userid",XOBJ_DTYPE_INT,null,false,10);
 		$this->initVar("contact",XOBJ_DTYPE_INT,null,false,10);

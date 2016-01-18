@@ -31,7 +31,7 @@ class tdmmp_folder extends XoopsObject
 // constructor
 	function __construct()
 	{
-		$this->XoopsObject();
+		parent::__construct();
 		$this->initVar("cid",XOBJ_DTYPE_INT,null,false,8);
 		$this->initVar("pid",XOBJ_DTYPE_INT,null,false,8);
 		$this->initVar("title",XOBJ_DTYPE_TXTBOX, null, false);
