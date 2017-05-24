@@ -37,7 +37,7 @@ $folder_handler =& xoops_getModuleHandler('tdmmp_folder', 'TDMMp');
 $member_handler =& xoops_gethandler('member');
 
 
-$myts =& MyTextSanitizer::getInstance();
+$myts = MyTextSanitizer::getInstance();
 $op = isset($_REQUEST['op']) ? $_REQUEST['op'] : 'default';
 
 

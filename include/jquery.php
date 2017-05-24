@@ -26,7 +26,7 @@ require(XOOPS_ROOT_PATH.'/header.php');
 }
 
 
-$myts =& MyTextSanitizer::getInstance();
+$myts = MyTextSanitizer::getInstance();
 
 global $xoopsDB, $xoopsTpl, $xoopsModule, $xoopsModuleConfig, $xoopsUser;
 

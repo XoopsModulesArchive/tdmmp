@@ -52,7 +52,7 @@ if (!is_object($xoopsUser)) {
 
 xoops_header();
 
-$myts =& MyTextSanitizer::getInstance();
+$myts = MyTextSanitizer::getInstance();
 
 $pm_handler =& xoops_getModuleHandler('tdmmp_messages', 'TDMMp');
 
